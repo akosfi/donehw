@@ -6,7 +6,8 @@ import { CarActions } from "redux/car/slice";
 import { RouteActions } from "redux/route/slice";
 import Navigation from "components/common/Navigation";
 import CarsPage from "components/pages/CarsPage";
-import CarsEditPage from "components/pages/CarsEditPage";
+import CarEditPage from "components/pages/CarEditPage";
+import CarCreatePage from "components/pages/CarCreatePage";
 
 const App: FC = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,8 @@ const App: FC = () => {
             <Routes>
                 <Route path="/" element={<CarsPage />} />
                 <Route path="/cars" element={<CarsPage />} />
-                <Route path="/cars/:id" element={<CarsEditPage />} />
+                <Route path="/cars/edit/:id" element={<CarEditPage />} />
+                <Route path="/cars/new" element={<CarCreatePage />} />
             </Routes>
         </>
     );

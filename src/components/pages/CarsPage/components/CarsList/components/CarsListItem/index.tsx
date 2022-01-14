@@ -17,7 +17,7 @@ const CarsListItem: FC<Props> = ({ id }) => {
     const navigate = useNavigate();
 
     const handleDeleteButtonClick = () => dispatch(CarActions.deleteCarRequest({ carId: id }));
-    const handleEditButtonClick = () => navigate(`/cars/${id}`);
+    const handleEditButtonClick = () => navigate(`/cars/edit/${id}`);
 
     if (!car) {
         return null;

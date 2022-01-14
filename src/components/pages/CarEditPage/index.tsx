@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 //
 import CarEditForm from "components/common/car/CarEditForm";
 
-const CarsEditPage: FC = () => {
+const CarEditPage: FC = () => {
     const { id } = useParams<{ id: string }>();
 
     return (
@@ -13,4 +13,4 @@ const CarsEditPage: FC = () => {
     );
 };
 
-export default memo(CarsEditPage);
+export default memo(CarEditPage);

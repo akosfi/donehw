@@ -11,7 +11,8 @@ abstract class CarSelectors {
 
     static getCarsError = (state: StoreState) => getState(state).error;
 
-    static createGetCarById = (id: string) => (state: StoreState) => find(getState(state).cars, { id });
+    static createGetCarById = (id: string) => (state: StoreState) =>
+        find(getState(state).cars, ({ id: _id }) => _id === id);
 
     static getCreatingCarIsSaving = (state: StoreState) => getState(state).creating.isSaving;
 

@@ -1,8 +1,12 @@
 import { FC, memo, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //
 import DeleteCarSaga from "redux/car/sagas/deleteCarSaga";
 import { CarActions } from "redux/car/slice";
+import { useForm } from "react-hook-form";
+import CarSelectors from "../../../../redux/car/selectors";
+
+type HookFormData = { licensePlateNumber: string; type: string };
 
 type Props = {
     id: string | null;
@@ -10,27 +14,35 @@ type Props = {
 };
 
 const CarEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
+    const { register, handleSubmit: handleHookFormSubmit, setValue } = useForm<HookFormData>();
+
+    const car = useSelector(CarSelectors.createGetCarById(id || ""));
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (id !== null && !isCreationMode) {
-            //TODO reload default props
+        if (id !== null && !isCreationMode && !!car) {
+            setValue("licensePlateNumber", car.licensePlateNumber);
+            setValue("type", car.type);
         }
-    }, [id, isCreationMode]);
+    }, [id, isCreationMode, car, setValue]);
 
-    const handleSubmit = () => {
+    const handleSubmit = (data: HookFormData) => {
         if (!isCreationMode && id !== null) {
-            //dispatch(CarActions.editCarRequest({}))
+            dispatch(CarActions.editCarRequest({ car: data, carId: id }));
         } else {
-            //dispatch(CarActions.createCarRequest({}))
+            dispatch(CarActions.createCarRequest({ car: data }));
         }
     };
 
     return (
         <div>
-            <div>
+            <form onSubmit={handleHookFormSubmit(handleSubmit)}>
                 <span>CarEditForm {id}</span>
-            </div>
+                <input {...register("licensePlateNumber")} />
+                <input {...register("type")} />
+                <button type={"submit"}>Save</button>
+            </form>
         </div>
     );
 };
