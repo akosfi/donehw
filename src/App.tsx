@@ -8,6 +8,8 @@ import Navigation from "components/common/Navigation";
 import CarsPage from "components/pages/CarsPage";
 import CarEditPage from "components/pages/CarEditPage";
 import CarCreatePage from "components/pages/CarCreatePage";
+//
+import "assets/global/style.module.scss";
 
 const App: FC = () => {
     const dispatch = useDispatch();

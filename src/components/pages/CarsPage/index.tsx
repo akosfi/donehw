@@ -1,20 +1,19 @@
 import { FC, memo } from "react";
 import { useNavigate } from "react-router-dom";
+//import { Button } from "@mui/material";
 //
+import PageLayout from "components/common/PageLayout";
 import CarsList from "components/pages/CarsPage/components/CarsList";
 
 const CarsPage: FC = () => {
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
-    const handleCreateButtonClick = () => navigate("/cars/new");
+    //const handleCreateButtonClick = () => navigate("/cars/new");
 
     return (
-        <div>
-            <div>
-                <span onClick={handleCreateButtonClick}>Create</span>
-            </div>
+        <PageLayout>
             <CarsList />
-        </div>
+        </PageLayout>
     );
 };
 
