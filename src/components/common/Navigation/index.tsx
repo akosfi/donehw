@@ -37,7 +37,13 @@ const Navigation = () => {
         <AppBar position="static" sx={{ marginBottom: "32px" }}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
-                    <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: "none", md: "flex" } }}>
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ mr: 2, display: { xs: "none", md: "flex" }, cursor: "pointer" }}
+                        onClick={createHandleNavigationItemClick("/")}
+                    >
                         CarsApp
                     </Typography>
 
@@ -81,7 +87,8 @@ const Navigation = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+                        sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, cursor: "pointer" }}
+                        onClick={createHandleNavigationItemClick("/")}
                     >
                         CarsApp
                     </Typography>
