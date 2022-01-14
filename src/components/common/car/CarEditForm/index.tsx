@@ -1,10 +1,10 @@
 import { FC, memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-//
-import DeleteCarSaga from "redux/car/sagas/deleteCarSaga";
-import { CarActions } from "redux/car/slice";
+import { Box, Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import CarSelectors from "../../../../redux/car/selectors";
+//
+import { CarActions } from "redux/car/slice";
+import CarSelectors from "redux/car/selectors";
 
 type HookFormData = { licensePlateNumber: string; type: string };
 
@@ -38,10 +38,29 @@ const CarEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
     return (
         <div>
             <form onSubmit={handleHookFormSubmit(handleSubmit)}>
-                <span>CarEditForm {id}</span>
-                <input {...register("licensePlateNumber")} />
-                <input {...register("type")} />
-                <button type={"submit"}>Save</button>
+                <Box sx={{ margin: "32px 0" }}>
+                    <TextField
+                        {...register("licensePlateNumber")}
+                        label="License Plate Number"
+                        placeholder="License Plate Number"
+                        variant="outlined"
+                        InputLabelProps={{ shrink: true }}
+                    />
+                </Box>
+                <Box sx={{ marginBottom: "32px" }}>
+                    <TextField
+                        {...register("type")}
+                        label="Type"
+                        placeholder="Type"
+                        variant="outlined"
+                        InputLabelProps={{ shrink: true }}
+                    />
+                </Box>
+                <Box>
+                    <Button variant="contained" type="submit">
+                        Save
+                    </Button>
+                </Box>
             </form>
         </div>
     );
