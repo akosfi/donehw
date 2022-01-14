@@ -6,7 +6,7 @@ import createRouteSaga from "redux/route/sagas/createRouteSaga";
 import editRouteSaga from "redux/route/sagas/editRouteSaga";
 import deleteRouteSaga from "redux/route/sagas/deleteRouteSaga";
 
-function* carSaga() {
+function* routeSaga() {
     yield all([
         takeLatest(RouteActions.loadRoutesRequest.type, loadRoutesSaga),
         takeLatest(RouteActions.createRouteRequest.type, createRouteSaga),
@@ -15,4 +15,4 @@ function* carSaga() {
     ]);
 }
 
-export default carSaga;
+export default routeSaga;

@@ -1,5 +1,5 @@
 import { put, select } from "redux-saga/effects";
-import { indexOf } from "lodash";
+import { findIndex } from "lodash";
 //
 import { RouteActions } from "redux/route/slice";
 import RouteSelectors from "redux/route/selectors";
@@ -11,10 +11,10 @@ function* editRouteSaga({ payload }: ReturnType<typeof RouteActions.editRouteReq
         const routes: Route[] = yield select(RouteSelectors.getRoutes);
 
         const editedRoute: Route = { ...route, id: routeId };
-        const editedRouteIndex = indexOf(routes, editedRoute);
+        const editedRouteIndex = findIndex(routes, ({ id: _id }) => routeId === _id);
 
-        const firstHalfOfRoutes = routes.splice(0, editedRouteIndex);
-        const secondHalfOfRoutes = routes.splice(editedRouteIndex + 1, routes.length);
+        const firstHalfOfRoutes = routes.slice(0, editedRouteIndex);
+        const secondHalfOfRoutes = routes.slice(editedRouteIndex + 1, routes.length);
 
         const routesWithNewRoute: Route[] = [...firstHalfOfRoutes, editedRoute, ...secondHalfOfRoutes];
 

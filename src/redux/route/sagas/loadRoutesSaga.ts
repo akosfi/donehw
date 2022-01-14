@@ -20,6 +20,7 @@ const fetchMockedRoutes = () =>
 
 function* loadRoutesSaga() {
     try {
+        console.log("he");
         const mockedRoutes: Route[] = yield call(fetchMockedRoutes);
         yield put(RouteActions.loadRoutesSuccess({ routes: mockedRoutes }));
     } catch (e) {
