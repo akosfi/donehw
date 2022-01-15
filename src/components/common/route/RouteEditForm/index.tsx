@@ -62,7 +62,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
             <form onSubmit={handleHookFormSubmit(handleSubmit)}>
                 <Box sx={{ margin: "32px 0" }}>
                     <TextField
-                        {...register("locationFrom")}
+                        {...register("locationFrom", { required: true })}
                         label="Location From"
                         placeholder="Location From"
                         variant="outlined"
@@ -71,7 +71,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                 </Box>
                 <Box sx={{ marginBottom: "32px" }}>
                     <TextField
-                        {...register("locationTo")}
+                        {...register("locationTo", { required: true })}
                         label="Location To"
                         placeholder="Location To"
                         variant="outlined"
@@ -95,7 +95,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                 </Box>
                 <Box sx={{ marginBottom: "32px" }}>
                     <TextField
-                        {...register("distanceInKm")}
+                        {...register("distanceInKm", { required: true })}
                         label="Distance In KM"
                         placeholder="Distance In KM"
                         variant="outlined"

@@ -40,7 +40,7 @@ const CarEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
             <form onSubmit={handleHookFormSubmit(handleSubmit)}>
                 <Box sx={{ margin: "32px 0" }}>
                     <TextField
-                        {...register("licensePlateNumber")}
+                        {...register("licensePlateNumber", { required: true })}
                         label="License Plate Number"
                         placeholder="License Plate Number"
                         variant="outlined"
@@ -49,7 +49,7 @@ const CarEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                 </Box>
                 <Box sx={{ marginBottom: "32px" }}>
                     <TextField
-                        {...register("type")}
+                        {...register("type", { required: true })}
                         label="Type"
                         placeholder="Type"
                         variant="outlined"

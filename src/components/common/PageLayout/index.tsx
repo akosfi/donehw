@@ -8,7 +8,9 @@ type Props = {
 const PageLayout: FC<Props> = ({ children }) => {
     return (
         <Box sx={{ maxWidth: "lg", width: "100%", margin: "0 auto" }}>
-            <Paper elevation={0}>{children}</Paper>
+            <Paper elevation={0} sx={{ margin: "0 16px" }}>
+                {children}
+            </Paper>
         </Box>
     );
 };
