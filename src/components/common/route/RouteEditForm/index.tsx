@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useState } from "react";
+import { FC, memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, MenuItem, Select, TextField } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
@@ -16,7 +16,7 @@ type HookFormData = {
     locationTo: string;
     carId: string | null;
     distanceInKm: number;
-    date: Date;
+    date: string;
 };
 
 type Props = {
@@ -56,12 +56,6 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
         }
     };
 
-    const [value, setDateValue] = useState<Date | null>(new Date("2014-08-18T21:11:54"));
-
-    const handleChange = (newValue: Date | null) => {
-        setDateValue(newValue);
-    };
-
     return (
         <div>
             <form onSubmit={handleHookFormSubmit(handleSubmit)}>
@@ -86,7 +80,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                 <Box sx={{ marginBottom: "32px" }}>
                     <Controller
                         render={({ field: { value, onChange } }) => (
-                            <Select value={value} onChange={onChange}>
+                            <Select value={value ?? ""} onChange={onChange}>
                                 {map(cars, ({ id, type, licensePlateNumber }) => (
                                     <MenuItem key={id} value={id}>
                                         {`${licensePlateNumber} - ${type}`}
@@ -109,12 +103,18 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                 </Box>
                 <Box sx={{ marginBottom: "32px" }}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <MobileDatePicker
-                            label="Date mobile"
-                            inputFormat="MM/dd/yyyy"
-                            value={value}
-                            onChange={handleChange}
-                            renderInput={params => <TextField {...params} />}
+                        <Controller
+                            render={({ field: { value, onChange } }) => (
+                                <MobileDatePicker
+                                    label="Date mobile"
+                                    inputFormat="MM/dd/yyyy"
+                                    value={new Date(value) ?? ""}
+                                    onChange={(date: Date | null) => onChange(date?.getTime() || "")}
+                                    renderInput={params => <TextField {...params} />}
+                                />
+                            )}
+                            name={"date"}
+                            control={control}
                         />
                     </LocalizationProvider>
                 </Box>

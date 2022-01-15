@@ -33,7 +33,7 @@ const RoutesListItem: FC<Props> = ({ id }) => {
             <TableCell>{route.locationTo}</TableCell>
             <TableCell>{!!car ? car.type : "<No car assigned>"}</TableCell>
             <TableCell>{route.distanceInKm}</TableCell>
-            <TableCell>{route.date.toDateString()}</TableCell>
+            <TableCell>{new Date(route.date).toDateString()}</TableCell>
             <TableCell align="right" sx={{ width: "48px" }}>
                 <Edit onClick={handleEditButtonClick} sx={{ cursor: "pointer" }} />
             </TableCell>

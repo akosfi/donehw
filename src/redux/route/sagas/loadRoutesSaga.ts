@@ -13,7 +13,7 @@ const fetchMockedRoutes = () =>
                 locationTo: "Budapest",
                 carId: null,
                 distanceInKm: 140,
-                date: new Date()
+                date: new Date().getTime()
             }
         ])
     );

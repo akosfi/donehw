@@ -4,5 +4,5 @@ export type Route = {
     locationTo: string;
     carId: string | null;
     distanceInKm: number;
-    date: Date;
+    date: string;
 };
