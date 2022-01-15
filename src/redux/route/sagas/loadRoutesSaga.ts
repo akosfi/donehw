@@ -18,9 +18,11 @@ const fetchMockedRoutes = () =>
         ])
     );
 
+const seedMockedData = process.env.REACT_APP_SEED_DATA === "true";
+
 function* loadRoutesSaga() {
     try {
-        const mockedRoutes: Route[] = yield call(fetchMockedRoutes);
+        const mockedRoutes: Route[] = seedMockedData ? yield call(fetchMockedRoutes) : [];
         yield put(RouteActions.loadRoutesSuccess({ routes: mockedRoutes }));
     } catch (e) {
         console.log(e);
