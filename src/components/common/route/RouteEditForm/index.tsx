@@ -44,9 +44,11 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
 
     useEffect(() => {
         if (isCreationMode && cars.length) {
-            setValue("carId", cars[0].id);
+            if (cars.length) {
+                setValue("carId", cars[0].id);
+            }
+            setValue("date", new Date().toISOString());
         }
-        setValue("date", new Date().toISOString());
     }, [isCreationMode, cars, setValue]);
 
     const handleSubmit = (data: HookFormData) => {

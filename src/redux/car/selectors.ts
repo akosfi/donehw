@@ -18,9 +18,13 @@ abstract class CarSelectors {
 
     static getCreatingCarError = (state: StoreState) => getState(state).creating.error;
 
+    static getCreatingCarIsSaved = (state: StoreState) => getState(state).creating.isSaved;
+
     static getEditingCarIsSaving = (state: StoreState) => getState(state).editing.isSaving;
 
     static getEditingCarError = (state: StoreState) => getState(state).editing.error;
+
+    static getEditingCarIsSaved = (state: StoreState) => getState(state).editing.isSaved;
 
     static getDeletingCarIsSaving = (state: StoreState) => getState(state).deleting.isSaving;
 

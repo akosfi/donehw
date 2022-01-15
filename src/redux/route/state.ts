@@ -7,10 +7,12 @@ export type RouteState = {
     editing: {
         isSaving: boolean;
         error: string;
+        isSaved: boolean;
     };
     creating: {
         isSaving: boolean;
         error: string;
+        isSaved: boolean;
     };
     deleting: {
         isSaving: boolean;
@@ -24,11 +26,13 @@ export const initialState: RouteState = {
     error: "",
     editing: {
         isSaving: false,
-        error: ""
+        error: "",
+        isSaved: false
     },
     creating: {
         isSaving: false,
-        error: ""
+        error: "",
+        isSaved: false
     },
     deleting: {
         isSaving: false,

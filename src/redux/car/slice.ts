@@ -25,29 +25,39 @@ const carSlice = createSlice({
         createCarRequest: (state, action: PayloadAction<{ car: FixMeLater }>) => {
             state.creating.isSaving = true;
             state.creating.error = "";
+            state.creating.isSaved = false;
         },
         createCarSuccess: (state, action: PayloadAction<{ cars: Car[] }>) => {
             state.cars = action.payload.cars;
             state.creating.isSaving = false;
             state.creating.error = "";
+            state.creating.isSaved = true;
         },
         createCarFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.creating.isSaving = true;
             state.creating.error = action.payload.error;
         },
+        setIsCarCreatingSaved: (state, action: PayloadAction<{ isSaved: boolean }>) => {
+            state.creating.isSaved = action.payload.isSaved;
+        },
 
         editCarRequest: (state, action: PayloadAction<{ car: FixMeLater; carId: string }>) => {
             state.editing.isSaving = true;
             state.editing.error = "";
+            state.editing.isSaved = false;
         },
         editCarSuccess: (state, action: PayloadAction<{ cars: Car[] }>) => {
             state.cars = action.payload.cars;
             state.editing.isSaving = false;
             state.editing.error = "";
+            state.editing.isSaved = true;
         },
         editCarFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.editing.isSaving = true;
             state.editing.error = action.payload.error;
+        },
+        setIsCarEditSaved: (state, action: PayloadAction<{ isSaved: boolean }>) => {
+            state.editing.isSaved = action.payload.isSaved;
         },
 
         deleteCarRequest: (state, action: PayloadAction<{ carId: string }>) => {

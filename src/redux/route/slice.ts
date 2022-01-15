@@ -25,29 +25,39 @@ const routeSlice = createSlice({
         createRouteRequest: (state, action: PayloadAction<{ route: FixMeLater }>) => {
             state.creating.isSaving = true;
             state.creating.error = "";
+            state.creating.isSaved = false;
         },
         createRouteSuccess: (state, action: PayloadAction<{ routes: Route[] }>) => {
             state.routes = action.payload.routes;
             state.creating.isSaving = false;
             state.creating.error = "";
+            state.creating.isSaved = true;
         },
         createRouteFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.creating.isSaving = true;
             state.creating.error = action.payload.error;
         },
+        setIsCreateRouteSaved: (state, action: PayloadAction<{ isSaved: boolean }>) => {
+            state.creating.isSaved = action.payload.isSaved;
+        },
 
         editRouteRequest: (state, action: PayloadAction<{ route: FixMeLater; routeId: string }>) => {
             state.editing.isSaving = true;
             state.editing.error = "";
+            state.editing.isSaved = false;
         },
         editRouteSuccess: (state, action: PayloadAction<{ routes: Route[] }>) => {
             state.routes = action.payload.routes;
             state.editing.isSaving = false;
             state.editing.error = "";
+            state.editing.isSaved = true;
         },
         editRouteFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.editing.isSaving = true;
             state.editing.error = action.payload.error;
+        },
+        setIsEditRouteSaved: (state, action: PayloadAction<{ isSaved: boolean }>) => {
+            state.editing.isSaved = action.payload.isSaved;
         },
 
         deleteRouteRequest: (state, action: PayloadAction<{ routeId: string }>) => {

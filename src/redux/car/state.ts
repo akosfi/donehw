@@ -8,10 +8,12 @@ export type CarState = {
     editing: {
         isSaving: boolean;
         error: string;
+        isSaved: boolean;
     };
     creating: {
         isSaving: boolean;
         error: string;
+        isSaved: boolean;
     };
     deleting: {
         isSaving: boolean;
@@ -25,11 +27,13 @@ export const initialState: CarState = {
     error: "",
     editing: {
         isSaving: false,
-        error: ""
+        error: "",
+        isSaved: false
     },
     creating: {
         isSaving: false,
-        error: ""
+        error: "",
+        isSaved: false
     },
     deleting: {
         isSaving: false,

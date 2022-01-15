@@ -17,9 +17,13 @@ abstract class RouteSelectors {
 
     static getCreatingRouteError = (state: StoreState) => getState(state).creating.error;
 
+    static getCreatingRouteIsSaved = (state: StoreState) => getState(state).creating.isSaved;
+
     static getEditingRouteIsSaving = (state: StoreState) => getState(state).editing.isSaving;
 
     static getEditingRouteError = (state: StoreState) => getState(state).editing.error;
+
+    static getEditingRouteIsSaved = (state: StoreState) => getState(state).editing.isSaved;
 
     static getDeletingRouteIsSaving = (state: StoreState) => getState(state).deleting.isSaving;
 
