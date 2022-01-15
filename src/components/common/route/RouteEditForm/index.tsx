@@ -46,6 +46,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
         if (isCreationMode && cars.length) {
             setValue("carId", cars[0].id);
         }
+        setValue("date", new Date().toISOString());
     }, [isCreationMode, cars, setValue]);
 
     const handleSubmit = (data: HookFormData) => {
@@ -108,8 +109,8 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                                 <MobileDatePicker
                                     label="Date mobile"
                                     inputFormat="MM/dd/yyyy"
-                                    value={new Date(value) ?? ""}
-                                    onChange={(date: Date | null) => onChange(date?.getTime() || "")}
+                                    value={value ? new Date(value) : ""}
+                                    onChange={(date: Date | null) => onChange(date?.toISOString() || "")}
                                     renderInput={params => <TextField {...params} />}
                                 />
                             )}

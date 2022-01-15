@@ -10,6 +10,7 @@ import CarEditPage from "components/pages/CarEditPage";
 import CarCreatePage from "components/pages/CarCreatePage";
 import RoutesPage from "components/pages/RoutesPage";
 import RouteEditPage from "components/pages/RouteEditPage";
+import RouteCreatePage from "components/pages/RouteCreatePage";
 //
 import "assets/global/style.module.scss";
 
@@ -31,6 +32,7 @@ const App: FC = () => {
                 <Route path="/cars/new" element={<CarCreatePage />} />
                 <Route path="/routes" element={<RoutesPage />} />
                 <Route path="/routes/edit/:id" element={<RouteEditPage />} />
+                <Route path="/routes/new" element={<RouteCreatePage />} />
             </Routes>
         </>
     );

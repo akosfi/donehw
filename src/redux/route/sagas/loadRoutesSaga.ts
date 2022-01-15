@@ -13,14 +13,13 @@ const fetchMockedRoutes = () =>
                 locationTo: "Budapest",
                 carId: null,
                 distanceInKm: 140,
-                date: new Date().getTime()
+                date: new Date().toISOString()
             }
         ])
     );
 
 function* loadRoutesSaga() {
     try {
-        console.log("he");
         const mockedRoutes: Route[] = yield call(fetchMockedRoutes);
         yield put(RouteActions.loadRoutesSuccess({ routes: mockedRoutes }));
     } catch (e) {
