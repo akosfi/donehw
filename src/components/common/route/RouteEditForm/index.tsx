@@ -94,6 +94,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
                         placeholder="Distance In KM"
                         variant="outlined"
                         InputLabelProps={{ shrink: true }}
+                        type="number"
                     />
                 </Box>
                 <Box sx={{ marginBottom: "32px" }}>
