@@ -35,7 +35,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
     }, [id, isCreationMode, route, setValue]);
 
     useEffect(() => {
-        if (isCreationMode && cars.length) {
+        if (isCreationMode) {
             if (cars.length) {
                 setValue("carId", cars[0].id);
             }

@@ -13,9 +13,7 @@ type NavigationItemType = {
 
 const navigationItems: NavigationItemType[] = [
     { name: "Cars", href: "/cars" },
-    { name: "New Car", href: "/cars/new" },
-    { name: "Routes", href: "/routes" },
-    { name: "New Route", href: "/routes/new" }
+    { name: "Routes", href: "/routes" }
 ];
 
 const Navigation = () => {
