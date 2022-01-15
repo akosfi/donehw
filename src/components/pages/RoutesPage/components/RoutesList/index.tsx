@@ -20,23 +20,23 @@ const RoutesList: FC = () => {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>Location From</b>
                         </TableCell>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>Location Where</b>
                         </TableCell>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>Car Type</b>
                         </TableCell>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>Distance in KM</b>
                         </TableCell>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>Date</b>
                         </TableCell>
-                        <TableCell />
-                        <TableCell />
+                        <TableCell align="right" sx={{ width: "32px" }} />
+                        <TableCell align="right" sx={{ width: "32px" }} />
                     </TableRow>
                 </TableHead>
                 <TableBody>

@@ -29,15 +29,15 @@ const RoutesListItem: FC<Props> = ({ id }) => {
 
     return (
         <TableRow key={id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell>{route.locationFrom}</TableCell>
-            <TableCell>{route.locationTo}</TableCell>
-            <TableCell>{!!car ? car.type : "<No car assigned>"}</TableCell>
-            <TableCell>{route.distanceInKm}</TableCell>
-            <TableCell>{new Date(route.date).toDateString()}</TableCell>
-            <TableCell align="right" sx={{ width: "48px" }}>
+            <TableCell sx={{ width: "128px" }}>{route.locationFrom}</TableCell>
+            <TableCell sx={{ width: "128px" }}>{route.locationTo}</TableCell>
+            <TableCell sx={{ width: "128px" }}>{!!car ? car.type : "<No car assigned>"}</TableCell>
+            <TableCell sx={{ width: "128px" }}>{route.distanceInKm}</TableCell>
+            <TableCell sx={{ width: "128px" }}>{new Date(route.date).toDateString()}</TableCell>
+            <TableCell align="right" sx={{ width: "32px" }}>
                 <Edit onClick={handleEditButtonClick} sx={{ cursor: "pointer" }} />
             </TableCell>
-            <TableCell align="right" sx={{ width: "48px" }}>
+            <TableCell align="right" sx={{ width: "32px" }}>
                 <Delete onClick={handleDeleteButtonClick} sx={{ cursor: "pointer" }} />
             </TableCell>
         </TableRow>

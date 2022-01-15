@@ -27,12 +27,12 @@ const CarsListItem: FC<Props> = ({ id }) => {
 
     return (
         <TableRow key={id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell>{car.licensePlateNumber}</TableCell>
-            <TableCell>{car.type}</TableCell>
-            <TableCell align="right" sx={{ width: "48px" }}>
+            <TableCell sx={{ width: "128px" }}>{car.licensePlateNumber}</TableCell>
+            <TableCell sx={{ width: "128px" }}>{car.type}</TableCell>
+            <TableCell align="right" sx={{ width: "32px" }}>
                 <Edit onClick={handleEditButtonClick} sx={{ cursor: "pointer" }} />
             </TableCell>
-            <TableCell align="right" sx={{ width: "48px" }}>
+            <TableCell align="right" sx={{ width: "32px" }}>
                 <Delete onClick={handleDeleteButtonClick} sx={{ cursor: "pointer" }} />
             </TableCell>
         </TableRow>

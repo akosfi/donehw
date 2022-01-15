@@ -14,14 +14,14 @@ const CarsList: FC = () => {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>License Plate Number</b>
                         </TableCell>
-                        <TableCell>
+                        <TableCell sx={{ width: "128px" }}>
                             <b>Type</b>
                         </TableCell>
-                        <TableCell />
-                        <TableCell />
+                        <TableCell align="right" sx={{ width: "32px" }} />
+                        <TableCell align="right" sx={{ width: "32px" }} />
                     </TableRow>
                 </TableHead>
                 <TableBody>
