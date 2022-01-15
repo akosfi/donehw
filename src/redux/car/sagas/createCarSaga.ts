@@ -16,7 +16,6 @@ function* createCarSaga({ payload }: ReturnType<typeof CarActions.createCarReque
 
         yield put(CarActions.createCarSuccess({ cars: carsWithNewCar }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(CarActions.createCarFailure({ error: "Failed to save car." }));
     }

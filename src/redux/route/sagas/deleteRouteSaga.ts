@@ -14,7 +14,6 @@ function* deleteRouteSaga({ payload }: ReturnType<typeof RouteActions.deleteRout
 
         yield put(RouteActions.deleteRouteSuccess({ routes: filteredRoutes }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(RouteActions.deleteRouteFailure({ error: "Failed to delete route." }));
     }

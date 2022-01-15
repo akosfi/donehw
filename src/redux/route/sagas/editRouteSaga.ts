@@ -20,7 +20,6 @@ function* editRouteSaga({ payload }: ReturnType<typeof RouteActions.editRouteReq
 
         yield put(RouteActions.editRouteSuccess({ routes: routesWithNewRoute }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(RouteActions.editRouteFailure({ error: "Failed to edit route." }));
     }

@@ -9,15 +9,7 @@ import { map } from "lodash";
 import RouteSelectors from "redux/route/selectors";
 import { RouteActions } from "redux/route/slice";
 import CarSelectors from "redux/car/selectors";
-
-type HookFormData = {
-    id: string;
-    locationFrom: string;
-    locationTo: string;
-    carId: string | null;
-    distanceInKm: number;
-    date: string;
-};
+import { RouteEditHookFormData } from "utils/forms/types";
 
 type Props = {
     id: string | null;
@@ -25,7 +17,7 @@ type Props = {
 };
 
 const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
-    const { register, handleSubmit: handleHookFormSubmit, setValue, control } = useForm<HookFormData>();
+    const { register, handleSubmit: handleHookFormSubmit, setValue, control } = useForm<RouteEditHookFormData>();
 
     const route = useSelector(RouteSelectors.createGetRouteById(id || ""));
     const cars = useSelector(CarSelectors.getCars);
@@ -51,7 +43,7 @@ const RouteEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
         }
     }, [isCreationMode, cars, setValue]);
 
-    const handleSubmit = (data: HookFormData) => {
+    const handleSubmit = (data: RouteEditHookFormData) => {
         if (!isCreationMode && id !== null) {
             dispatch(RouteActions.editRouteRequest({ route: data, routeId: id }));
         } else {

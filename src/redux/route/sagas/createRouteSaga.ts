@@ -16,7 +16,6 @@ function* createRouteSaga({ payload }: ReturnType<typeof RouteActions.createRout
 
         yield put(RouteActions.createRouteSuccess({ routes: routesWithNewRoute }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(RouteActions.createRouteFailure({ error: "Failed to save route." }));
     }

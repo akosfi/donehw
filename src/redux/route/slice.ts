@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 //
 import { initialState } from "redux/route/state";
 import { Route } from "redux/route/types";
-import { FixMeLater } from "utils/FixMeLater";
+import { RouteEditHookFormData } from "utils/forms/types";
 
 const routeSlice = createSlice({
     name: "ROUTE",
@@ -22,7 +22,7 @@ const routeSlice = createSlice({
             state.error = action.payload.error;
         },
 
-        createRouteRequest: (state, action: PayloadAction<{ route: FixMeLater }>) => {
+        createRouteRequest: (state, action: PayloadAction<{ route: RouteEditHookFormData }>) => {
             state.creating.isSaving = true;
             state.creating.error = "";
             state.creating.isSaved = false;
@@ -41,7 +41,7 @@ const routeSlice = createSlice({
             state.creating.isSaved = action.payload.isSaved;
         },
 
-        editRouteRequest: (state, action: PayloadAction<{ route: FixMeLater; routeId: string }>) => {
+        editRouteRequest: (state, action: PayloadAction<{ route: RouteEditHookFormData; routeId: string }>) => {
             state.editing.isSaving = true;
             state.editing.error = "";
             state.editing.isSaved = false;

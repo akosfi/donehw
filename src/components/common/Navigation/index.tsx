@@ -1,11 +1,10 @@
-import * as React from "react";
+import React from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { memo, useState } from "react";
 import { map } from "lodash";
 import { useNavigate } from "react-router-dom";
 //
-import { FixMeLater } from "utils/FixMeLater";
 
 type NavigationItemType = {
     name: string;
@@ -20,11 +19,13 @@ const navigationItems: NavigationItemType[] = [
 ];
 
 const Navigation = () => {
-    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElNav, setAnchorElNav] = useState<HTMLElement | null>(null);
 
     const navigate = useNavigate();
 
-    const handleOpenNavMenu = (event: FixMeLater) => setAnchorElNav(event.currentTarget);
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElNav(event.currentTarget);
+    };
 
     const handleCloseNavMenu = () => setAnchorElNav(null);
 

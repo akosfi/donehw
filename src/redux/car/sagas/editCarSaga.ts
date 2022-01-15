@@ -20,7 +20,6 @@ function* editCarSaga({ payload }: ReturnType<typeof CarActions.editCarRequest>)
 
         yield put(CarActions.editCarSuccess({ cars: carsWithNewCar }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(CarActions.editCarFailure({ error: "Failed to edit car." }));
     }

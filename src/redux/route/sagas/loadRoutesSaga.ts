@@ -23,7 +23,6 @@ function* loadRoutesSaga() {
         const mockedRoutes: Route[] = yield call(fetchMockedRoutes);
         yield put(RouteActions.loadRoutesSuccess({ routes: mockedRoutes }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(RouteActions.loadRoutesFailure({ error: "Failed to load routes." }));
     }

@@ -14,7 +14,6 @@ function* deleteCarSaga({ payload }: ReturnType<typeof CarActions.deleteCarReque
 
         yield put(CarActions.deleteCarSuccess({ cars: filteredCars }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(CarActions.deleteCarFailure({ error: "Failed to delete car." }));
     }

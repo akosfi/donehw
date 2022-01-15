@@ -12,7 +12,6 @@ function* loadCarsSaga() {
         const mockedCars: Car[] = yield call(fetchMockedCars);
         yield put(CarActions.loadCarsSuccess({ cars: mockedCars }));
     } catch (e) {
-        //TODO HANDLE ERROR
         console.log(e);
         yield put(CarActions.loadCarsFailure({ error: "Failed to load cars." }));
     }

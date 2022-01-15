@@ -5,8 +5,7 @@ import { useForm } from "react-hook-form";
 //
 import { CarActions } from "redux/car/slice";
 import CarSelectors from "redux/car/selectors";
-
-type HookFormData = { licensePlateNumber: string; type: string };
+import { CarEditHookFormData } from "utils/forms/types";
 
 type Props = {
     id: string | null;
@@ -14,7 +13,7 @@ type Props = {
 };
 
 const CarEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
-    const { register, handleSubmit: handleHookFormSubmit, setValue } = useForm<HookFormData>();
+    const { register, handleSubmit: handleHookFormSubmit, setValue } = useForm<CarEditHookFormData>();
 
     const car = useSelector(CarSelectors.createGetCarById(id || ""));
 
@@ -27,7 +26,7 @@ const CarEditForm: FC<Props> = ({ id, isCreationMode = false }) => {
         }
     }, [id, isCreationMode, car, setValue]);
 
-    const handleSubmit = (data: HookFormData) => {
+    const handleSubmit = (data: CarEditHookFormData) => {
         if (!isCreationMode && id !== null) {
             dispatch(CarActions.editCarRequest({ car: data, carId: id }));
         } else {

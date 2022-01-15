@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 //
 import { initialState } from "redux/car/state";
 import { Car } from "redux/car/types";
-import { FixMeLater } from "utils/FixMeLater";
+import { CarEditHookFormData } from "utils/forms/types";
 
 const carSlice = createSlice({
     name: "CAR",
@@ -22,7 +22,7 @@ const carSlice = createSlice({
             state.error = action.payload.error;
         },
 
-        createCarRequest: (state, action: PayloadAction<{ car: FixMeLater }>) => {
+        createCarRequest: (state, action: PayloadAction<{ car: CarEditHookFormData }>) => {
             state.creating.isSaving = true;
             state.creating.error = "";
             state.creating.isSaved = false;
@@ -41,7 +41,7 @@ const carSlice = createSlice({
             state.creating.isSaved = action.payload.isSaved;
         },
 
-        editCarRequest: (state, action: PayloadAction<{ car: FixMeLater; carId: string }>) => {
+        editCarRequest: (state, action: PayloadAction<{ car: CarEditHookFormData; carId: string }>) => {
             state.editing.isSaving = true;
             state.editing.error = "";
             state.editing.isSaved = false;
